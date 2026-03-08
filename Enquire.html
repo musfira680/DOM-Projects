@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .modeldiv {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            box-shadow: 0px 0px 10px 2px #ccc;
+            top: -1000px;
+            left: 50%;
+            transition:0.5s;
+            transform: translate(-50%, -50%);
+        }
+
+        .modeldiv h2 {
+            padding: 10px 0px;
+            text-align: center;
+            border: 1px solid #cccc;
+            position: relative;
+            color: rebeccapurple;
+        }
+
+        .modeldiv h2 span {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .modeldiv p {
+            text-align: center;
+            margin: 40px;
+            font-weight: 300px;
+        }
+
+        .btn {
+            position: fixed;
+            width: 100px;
+            height: 40px;
+            box-shadow: 0px 0px 10px 2px #ccc;
+            top:10%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+            background: transparent;
+            color: rebeccapurple;
+            border: 1px solid #cccc;
+            font-weight: 600;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">Show Model</button>
+    <div class="modeldiv">
+        <h2>Enquire Now <span> &times;</span></h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt totam repudiandae dolorum iusto, ipsam
+            aliquam magni corporis commodi, fugit eum dignissimos autem unde! Dolore accusantium quibusdam iure aliquid
+            reprehenderit non.</p>
+    </div>
+</body>
+<script>
+    let btn=document.querySelector("button")
+    let modeldivElement=document.querySelector(".modeldiv")
+    let closebtn=document.querySelector("span")
+
+    btn.addEventListener('click',()=>{
+        modeldivElement.style.top="50%"
+
+    })
+    closebtn.addEventListener('click',()=>{
+        modeldivElement.style.top="-1000px"
+    })
+</script>
+</html>
