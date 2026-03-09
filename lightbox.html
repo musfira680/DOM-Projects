@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #productsection {
+            width: 100%;
+            padding: 50px 0px;
+        }
+
+        .main {
+            width: 1320px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        #productsection h1 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .productitems img {
+            width: 100%;
+            height: 250px;
+        }
+
+        .modelelement {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            display: none;
+        }
+
+        .whitemodel {
+            width: 800px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            background-color: white;
+            transform: translate(-50%, -50%);
+        }
+
+        .whitemodel img {
+            width: 100%;
+            display: block;
+        }
+
+        .whitemodel span {
+            position: absolute;
+            right: 0px;
+            font-size: 40px;
+            cursor: pointer;
+            padding-right: 10px;
+        }
+
+        .showmodel {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- jis main zoom ho gi picture -->
+    <div class="modelelement">
+        <div class="whitemodel">
+            <!-- nichay js ka through img link lay kar ain ga -->
+            <span>&times;</span>
+            <img src="" alt="">
+
+
+        </div>
+
+    </div>
+    <section id="productsection">
+        <h1>Products</h1>
+        <div class="main">
+            <div class="productitems"><img
+                    src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-card-40-17pro-202509_FMT_WHH?wid=508&hei=472&fmt=p-jpg&qlt=95&.v=WVVFRzUzVk1oblJhbW9PbGNSU25ja3doNjVzb1FWSTVwZWJJYThYTHlrNzQzbUlIR1RvazhDRHNOQlYvM3g2dFIwdkZSSnBZYjhOaHBpM2lkYTFBUEZHTmVoMWFVZloyU3lqdmZCOUFEeDF6K2N6UFd4K21VWHNnbWZBQ3hSanQ">
+            </div>
+            <div class="productitems"><img
+                    src="https://media.wired.com/photos/68cb83e86a7338e553645554/4:3/w_5156,h_3867,c_limit/iPhone%2017%20Sage%20SOURCE%20Julian%20Chokkattu.jpg">
+            </div>
+            <div class="productitems"><img
+                    src="https://www.pakmobizone.pk/wp-content/uploads/2022/12/Apple-iPhone-14-Pro-Max-Deep-Purple-1.jpg">
+            </div>
+            <div class="productitems"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWepKM5DdVq92uWvOts4VoLUTD4u5x61il_w&s">
+            </div>
+            <div class="productitems"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWepKM5DdVq92uWvOts4VoLUTD4u5x61il_w&s">
+            </div>
+            <div class="productitems"><img
+                    src="https://www.pakmobizone.pk/wp-content/uploads/2022/12/Apple-iPhone-14-Pro-Max-Deep-Purple-1.jpg">
+            </div>
+            <div class="productitems"><img
+                    src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-card-40-17pro-202509_FMT_WHH?wid=508&hei=472&fmt=p-jpg&qlt=95&.v=WVVFRzUzVk1oblJhbW9PbGNSU25ja3doNjVzb1FWSTVwZWJJYThYTHlrNzQzbUlIR1RvazhDRHNOQlYvM3g2dFIwdkZSSnBZYjhOaHBpM2lkYTFBUEZHTmVoMWFVZloyU3lqdmZCOUFEeDF6K2N6UFd4K21VWHNnbWZBQ3hSanQ">
+            </div>
+            <div class="productitems"><img
+                    src="https://media.wired.com/photos/68cb83e86a7338e553645554/4:3/w_5156,h_3867,c_limit/iPhone%2017%20Sage%20SOURCE%20Julian%20Chokkattu.jpg">
+            </div>
+
+        </div>
+
+    </section>
+</body>
+<script>
+    let modelElement = document.querySelector('.modelelement')
+    let modelimg = document.querySelector('.whitemodel img')
+    let mainElement = document.querySelector('.main')
+    mainElement.addEventListener('click', (event) => {
+        if (event.target.tagName == 'IMG') {
+            let clickImagePath = event.target.src
+            modelElement.classList.add('showmodel')
+            modelimg.src = clickImagePath
+        }
+    })
+
+    let closeBtn = document.querySelector('.whitemodel span')
+
+    closeBtn.addEventListener('click', () => {
+        modelElement.classList.remove('showmodel')
+        modelimg.src = ''
+    })
+    /* overlay click close */
+    modelElement.addEventListener('click', () => {
+        modelElement.classList.remove('showmodel')
+        modelimg.src = ''
+    })
+
+    /* modal box click stop */
+    let whitemodel = document.querySelector('.whitemodel')
+
+    whitemodel.addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
+
+</script>
+
+</html>
